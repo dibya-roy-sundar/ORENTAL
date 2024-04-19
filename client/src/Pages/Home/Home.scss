@@ -1,0 +1,363 @@
+body, html{
+    padding: 0;
+    margin: 0;
+}
+
+.mainOuter{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+.header{
+    width: 100%;
+    display: flex;
+    padding: 1rem 0rem;
+    flex-direction: row;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 2;
+
+    .navbar{
+        width: 80%;
+        max-width: 1600px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .left{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 55%;
+        }
+
+        .right{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 30%;
+        }
+    }
+    
+}
+
+.hero{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .mainContent{
+        width: 80%;
+        max-width: 1600px;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        padding: 5rem 0rem;
+
+        .left{
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            justify-content: center;
+            
+            h1{
+                font-size: 5rem;
+            }
+
+            button{
+                padding: 1rem 1rem;
+                border-radius: 0.5rem;
+                border: none;
+                background-color: #FE753E;
+                color: white;
+                font-size: 1rem;
+                width: 22rem;
+            }
+        }
+
+        .right{
+            position: relative;
+            .mainGirlImg{
+                width: 40rem;
+                position: relative;
+                right: -8rem;
+            }
+            
+        }
+    }
+}
+
+.overview{
+    .overviewContent{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #e8e8e8;
+
+        .up{
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .left{
+                padding: 0rem 1rem;
+                width: 50%;
+                font-size: 2rem;
+                text-align: center;
+            }
+            .right{
+                padding: 0rem 1rem;
+                width: 80%;
+            }
+        }
+
+        .down{
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .imgPerson{
+                padding: 1rem;
+            }
+        }
+    }
+}
+
+.overviewDown{
+    .overviewContent{
+        background-color: #ffffff;
+        padding: 3rem 0rem;
+    }
+}
+
+.amenities{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5rem 0rem;
+    .left{
+        width: 80%;
+        padding: 1rem;
+
+        .content{
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            text-align: justify;
+
+            h3{
+                color: #1EA59A;
+                margin: 2rem 0rem;
+                font-size: 3rem;
+                margin-bottom: 0;
+            }
+
+            p{
+                margin: 0;
+            }
+        }
+    }
+
+    .right{
+        width: 100%;
+        padding: 1rem;
+        background-color: #F6FAFA;
+
+        .content{
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            text-align: justify;
+
+            .card{
+                display: flex;
+                flex-direction: row;
+                .left{
+                    width: auto;
+                    img{
+                        width: 3rem;
+                    }
+                }
+                .right{
+                    h4{
+                        margin: 0.75rem 0rem;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.footer{
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #F6FAFA;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1250px) {
+    .header{
+        .navbar{
+            width: 100%;
+        }
+    }
+
+    .hero{
+        .mainContent{
+            width: 100%;
+            .right{
+                .mainGirlImg{
+                    width: 30rem;
+                    position: relative;
+                    right: 0rem;
+                }
+            }
+        }
+    }
+
+    .overview{
+        .overviewContent{
+            .up{
+                width: 100%;
+                .right{
+                    padding-right: 3rem;
+                }
+            }
+            .down{
+                img{
+                    width: 15rem;
+                }
+            }
+        }
+    }
+
+    .amenities{
+        width: 100%;
+        .left{
+            padding-left: 3rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .hero{
+        .mainContent{
+            .left{
+                padding-left: 2rem;
+                h1{
+                    font-size: 3rem;
+                }
+                button{
+                    width: 16rem;
+                }
+            }
+        }
+    }
+
+    .hero{
+        .mainContent{
+            .right{
+                .mainGirlImg{
+                    width: 20rem;
+                }
+            }
+        }
+    }
+
+    .overview{
+        .overviewContent{
+            .down{
+                img{
+                    width: 10rem;
+                }
+            }
+        }
+    }
+
+    .amenities{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .hero{
+        .mainContent{
+            .left{
+                width: 80%;
+            }
+            .right{
+                display: none;
+            }
+        }
+    }
+
+    .amenities{
+        flex-direction: column;
+        justify-content: center;
+        .left{
+            padding-top: 0;
+        }
+        .right{
+            .content{
+                .card{
+                    .left{
+                        padding-left: 1rem;
+                    }
+                    .right{
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer{
+        background-color: #ffffff;
+    }
+}
+
+@media only screen and (max-width: 500px)
+{
+    .overview{
+        .overviewContent{
+            .up{
+                flex-direction: column;
+            }
+        }
+    }
+
+    .overview{
+        .overviewContent{
+            .down{
+                .p3{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .amenities{
+        .right{
+            width: auto;
+        }
+    }
+} 
