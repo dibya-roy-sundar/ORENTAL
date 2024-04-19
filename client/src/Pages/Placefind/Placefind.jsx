@@ -3,6 +3,7 @@ import React from 'react';
 import './Placefind.scss';
 import ListingCard from '../../Components/ListingCard/ListingCard';
 import SearchForm from '../../Components/SearchForm/Searchform';
+import image5 from '../../assets/Placeimages/house-5.png';
 const Placefind = () => {
     return (
         <div>
@@ -13,6 +14,12 @@ const Placefind = () => {
             <div className="listing-section">
                 <h2>Popular Listings</h2>
                 <div className="listing-cards">
+                    <ListingCard />
+                    <ListingCard />
+                    <ListingCard />
+                    <ListingCard />
+                    <ListingCard />
+                    <ListingCard />
                     <ListingCard />
                     <ListingCard />
                     <ListingCard />

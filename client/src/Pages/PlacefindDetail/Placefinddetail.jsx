@@ -13,14 +13,6 @@ const Placefinddetail = () => {
                 <h1>WENGE HOUSE</h1>
                 <div className="row">
                     <div>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star-half-alt"></i>
-                        <i className="far fa-star"></i>
-                        <span>245 Reviews</span>
-                    </div>
-                    <div>
                         <p>Location: San Francisco, California, United States</p>
                     </div>
                 </div>

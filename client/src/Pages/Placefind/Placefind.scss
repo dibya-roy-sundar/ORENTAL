@@ -13,6 +13,8 @@
 
 .listing-section {
     text-align: center;
+    padding: 2rem;
+    padding-top: 0;
 
     h2 {
         font-size: 24px;
@@ -32,10 +34,11 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 
     &:hover {
         transform: translateY(-5px);
+        background-color: #f7dcd6;
     }
 
     h3 {
