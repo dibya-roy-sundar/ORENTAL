@@ -1,0 +1,52 @@
+// SearchForm.scss
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input[type="text"],
+    input[type="date"] {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+
+        &:focus {
+            outline: none;
+            border-color: #ff5a5f;
+        }
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #ff5a5f;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ff3333;
+        }
+    }
+}
+
+.searchbuttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    max-width: fit-content;
+    margin: 0 auto;
+
+    .searchbuttons1 {
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        
+    }
+
+}
