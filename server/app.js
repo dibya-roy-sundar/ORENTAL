@@ -7,6 +7,7 @@ const express = require('express');
 const app = express();
 const mongoose=require('mongoose');
 const userRoutes=require('./routes/user');
+const officeRoutes=require('./routes/office')
 const errorMiddleware=require('./middlewares/error');
 const ErrorHand = require('./utils/errorhand');
 const cookieParser=require('cookie-parser');
@@ -34,6 +35,7 @@ app.use(cors({
 }))
 
 app.use('/', userRoutes);
+app.use('/office',officeRoutes);
 
 app.use(errorMiddleware);
 

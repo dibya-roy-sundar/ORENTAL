@@ -22,7 +22,13 @@ const userSchema = mongoose.Schema({
         type: Number,
         required: [true, "Phone no is required"],
         unique: true,
-    }
+    },
+    bookedEvents:[
+        {
+            type:Schema.Types.ObjectId,
+            ref:'Office'
+        }
+    ]
 });
 
 userSchema.methods.getJWTToken = function () {
