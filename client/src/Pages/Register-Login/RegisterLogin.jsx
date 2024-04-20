@@ -83,6 +83,7 @@ const RegistrationAndLoginForm = () => {
             <form onSubmit={handleLoginSubmit}>
               <label htmlFor="loginEmail">Email:</label>
               <input
+              placeholder="Enter Your Email"
                 type="email"
                 id="loginEmail"
                 name="loginEmail"
@@ -92,6 +93,7 @@ const RegistrationAndLoginForm = () => {
               <br />
               <label htmlFor="loginPassword">Password:</label>
               <input
+              placeholder='Enter Password'
                 type="password"
                 id="loginPassword"
                 name="loginPassword"
@@ -122,6 +124,7 @@ const RegistrationAndLoginForm = () => {
             <form onSubmit={handleRegistrationSubmit}>
               <label htmlFor="email">Email:</label>
               <input
+              placeholder='Enter Your Email'
                 type="email"
                 id="email"
                 name="email"
@@ -131,6 +134,7 @@ const RegistrationAndLoginForm = () => {
               <br />
               <label htmlFor="phone">Phone Number:</label>
               <input
+              placeholder='Enter Phone Number'
                 type="tel"
                 id="phone"
                 name="phone"
@@ -140,6 +144,7 @@ const RegistrationAndLoginForm = () => {
               <br />
               <label htmlFor="password">Password:</label>
               <input
+              placeholder='Enter Password'
                 type="password"
                 id="password"
                 name="password"
