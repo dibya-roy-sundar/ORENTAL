@@ -5,8 +5,15 @@ import image2 from '../../assets/Placeimages/house-2.png';
 import image3 from '../../assets/Placeimages/house-3.png';
 import image4 from '../../assets/Placeimages/house-4.png';
 import image5 from '../../assets/Placeimages/house-5.png';
+import { useParams } from 'react-router-dom';
+import useGetFetch from '../../hooks/useGetFetch';
 
 const Placefinddetail = () => {
+    const id = useParams().id;
+
+    const { data, loading, error } = useGetFetch(`/office/${id}`);
+    console.log(data);
+
     return (
         <div className="house-details">
             <div className="house-title">

@@ -4,7 +4,6 @@ const axios=require('axios');
 
 module.exports.addOffice = async (req, res, next) => {
    const { name, address, phnNo, email, price } = req.body;
-   console.log(process.env);
    const response=await axios.get(`https://geocode.maps.co/search?q=${address}&api_key=${process.env.GOOGLE_MAP_API_KEY}`);
    
    const location={
