@@ -44,6 +44,22 @@ html {
             flex-direction: row;
             justify-content: space-around;
             width: 30%;
+            align-items: center;
+
+
+            .navItemRight {
+                padding: 10px 20px;
+                background-color: #ff5a5f;
+                color: #ffffff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #ff3333;
+                }
+
+            }
         }
     }
 
