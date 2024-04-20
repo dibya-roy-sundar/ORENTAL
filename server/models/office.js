@@ -26,12 +26,12 @@ const officeSchema = mongoose.Schema({
         ref: 'User'
     },
     bookedDays: [{
-        type: Date,
+        type: String,
     }],
     previousBooking: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
+            ref: 'Booking'
         }
     ]
 })

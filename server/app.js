@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/user');
 const officeRoutes = require('./routes/office');
 const bookingRoutes = require('./routes/booking');
+const searchRoutes=require('./routes/search');
 const errorMiddleware = require('./middlewares/error');
 const ErrorHand = require('./utils/errorhand');
 const cookieParser = require('cookie-parser');
@@ -38,6 +39,7 @@ app.use(cors({
 app.use('/', userRoutes);
 app.use('/office', officeRoutes);
 app.use('/office/book', bookingRoutes);
+app.use('/search',searchRoutes);
 
 app.use(errorMiddleware);
 
