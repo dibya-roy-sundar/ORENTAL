@@ -7,7 +7,7 @@ import image4 from '../../assets/Placeimages/house-4.png';
 import image5 from '../../assets/Placeimages/house-5.png';
 import { useParams } from 'react-router-dom';
 import useGetFetch from '../../hooks/useGetFetch';
-
+import Slider from '../../Components/Slider/Slider.jsx'
 const Placefinddetail = () => {
     const id = useParams().id;
 
@@ -24,6 +24,7 @@ const Placefinddetail = () => {
                     </div>
                 </div>
             </div>
+            <Slider />
             <div className="gallery">
                 <div className="gallery-img1">
                     <img src={image1} alt="" />

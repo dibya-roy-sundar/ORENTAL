@@ -5,6 +5,8 @@ import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/pagination';
 import 'swiper/css/effect-fade';
+import imag1 from '../../assets/Placeimages/house-1.png';
+import imag2 from '../../assets/Placeimages/house-2.png';
 const Slider = () => {
 
     return (
@@ -25,14 +27,15 @@ const Slider = () => {
                     "--swiper-pagination-color": "#ff3e6c",
                 }}
             >
-                {/*<SwiperSlide><img src={data[0]} alt="" /></SwiperSlide>
-                <SwiperSlide><img src={data[1]} alt="" /></SwiperSlide>
-                <SwiperSlide><img src={data[2]} alt="" /></SwiperSlide>
+
+                <SwiperSlide><img src={imag1} alt="" /></SwiperSlide>
+                <SwiperSlide><img src={imag2} alt="" /></SwiperSlide>
+                {/* <SwiperSlide><img src={data[2]} alt="" /></SwiperSlide>
                 <SwiperSlide><img src={data[3]} alt="" /></SwiperSlide>
                 <SwiperSlide><img src={data[4]} alt="" /></SwiperSlide>
                 <SwiperSlide><img src={data[5]} alt="" /></SwiperSlide>
                 <SwiperSlide><img src={data[6]} alt="" /></SwiperSlide>
-            <SwiperSlide><img src={data[7]} alt="" /></SwiperSlide>*/}
+            <SwiperSlide><img src={data[7]} alt="" /></SwiperSlide> */}
             </Swiper>
         </div>
     )
