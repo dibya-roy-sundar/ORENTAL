@@ -7,6 +7,8 @@ import person3 from './person3.png';
 import maintenanceLogo from './maintenanceLogo.png';
 import priceLogo from './priceLogo.png';
 import reservedLogo from './reservedLogo.png';
+import { Link } from 'react-router-dom';
+
 
 const Home = () => {
     return (
@@ -14,15 +16,11 @@ const Home = () => {
             <div className="header">
                 <div className="navbar">
                     <div className="left">
-                        <div className='navItemLeft'>Home</div>
-                        <div className='navItemLeft'>Overview</div>
-                        <div className='navItemLeft'>Amenities</div>
-                        <div className='navItemLeft'>Footer</div>
                         {/* <div className='navItemLeft'>5</div> */}
                     </div>
                     <div className="right">
-                        <div className='navItemRight'>Login</div>
-                        <div className='navItemRight'>Sign Up</div>
+                        <Link to='/registerlogin'><button><div className='navItemRight'>Login/SignUp</div></button></Link>
+
                     </div>
                 </div>
             </div>
@@ -30,7 +28,7 @@ const Home = () => {
                 <div className="mainContent">
                     <div className="left">
                         <h1>ORental</h1>
-                        <button>Get Started</button>
+                        <Link to='/findoffice'> <button> Find Offices</button></Link>
                     </div>
                     <div className="right">
                         <img src={main_girl} className='mainGirlImg' />
