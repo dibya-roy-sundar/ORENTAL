@@ -20,18 +20,20 @@ module.exports.addOffice = async (req, res, next) => {
       office,
    })
 }
+
 module.exports.getOfficeData = async (req, res, next) => {
    const { id } = req.params;
-   const office = Office.findById(id);
+   const office = await Office.findById(id);
    res.status(200).json({
       success: true,
       office,
    })
 }
+
 module.exports.editOffice = async (req, res, next) => {
    const { name, location, latitude, longitude, phnNo, email, price } = req.body;
    const { id } = req.params;
-   const office = Office.findByIdAndUpdate(id,{
+   const office = await Office.findByIdAndUpdate(id,{
       name,
       location,
       latitude,

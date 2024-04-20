@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const officeSchema = mongoose.Schema({
     name: String,
     location: String,
+    latitude: String,
+    longitde: String,
     phNO: String,
     email: String,
     price: String,
