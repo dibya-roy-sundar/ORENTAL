@@ -67,7 +67,7 @@ html, body{
     }
 
     button {
-        background-color: #007bff;
+        background-color: #ff8b5d;
         color: #fff;
         border: none;
         width: 14rem;
@@ -77,9 +77,10 @@ html, body{
         border-radius: 1rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        // background-color: #ff5618;
 
         &:hover {
-            background-color: #0056b3;
+            background-color: #ff6f36;
         }
     }
 
