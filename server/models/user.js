@@ -1,6 +1,6 @@
-const  mongoose = require('mongoose');
-const  jwt = require('jsonwebtoken');
-const  bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const userSchema = mongoose.Schema({
     name: {
@@ -23,10 +23,10 @@ const userSchema = mongoose.Schema({
         required: [true, "Phone no is required"],
         unique: true,
     },
-    bookedEvents:[
+    bookedEvents: [
         {
-            type:Schema.Types.ObjectId,
-            ref:'Office'
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Office'
         }
     ]
 });
