@@ -58,6 +58,7 @@ const RegistrationAndLoginForm = () => {
   };
 
   return (
+    <div  className='register-main'>
     <div className="registration-and-login-form">
       <h1>Welcome {isLogin ? (userType === 'user' ? 'User!' : 'Lister!') : `to ${userType === 'user' ? 'User' : 'Lister'} Registration!`}</h1>
       <ToastContainer />
@@ -151,10 +152,12 @@ const RegistrationAndLoginForm = () => {
           </div>
         )}
       </div>
-
+      <div className='regbtn'>
       <button onClick={handleFormSwitch}>
         {isLogin ? 'Switch to Registration' : 'Switch to Login'}
       </button>
+      </div>
+    </div>
     </div>
   );
 };
