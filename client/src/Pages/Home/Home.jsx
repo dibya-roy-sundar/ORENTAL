@@ -14,15 +14,15 @@ const Home = () => {
             <div className="header">
                 <div className="navbar">
                     <div className="left">
-                        <div className='navItemLeft'>1</div>
-                        <div className='navItemLeft'>2</div>
-                        <div className='navItemLeft'>3</div>
-                        <div className='navItemLeft'>4</div>
-                        <div className='navItemLeft'>5</div>
+                        <div className='navItemLeft'>Home</div>
+                        <div className='navItemLeft'>Overview</div>
+                        <div className='navItemLeft'>Amenities</div>
+                        <div className='navItemLeft'>Footer</div>
+                        {/* <div className='navItemLeft'>5</div> */}
                     </div>
                     <div className="right">
-                        <div className='navItemRight'>6</div>
-                        <div className='navItemRight'>7</div>
+                        <div className='navItemRight'>Login</div>
+                        <div className='navItemRight'>Sign Up</div>
                     </div>
                 </div>
             </div>

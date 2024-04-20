@@ -58,6 +58,7 @@ const RegistrationAndLoginForm = () => {
   };
 
   return (
+    <div  className='register-main'>
     <div className="registration-and-login-form">
       <h1>Welcome {isLogin ? (userType === 'user' ? 'User!' : 'Lister!') : `to ${userType === 'user' ? 'User' : 'Lister'} Registration!`}</h1>
       <ToastContainer />
@@ -82,6 +83,7 @@ const RegistrationAndLoginForm = () => {
             <form onSubmit={handleLoginSubmit}>
               <label htmlFor="loginEmail">Email:</label>
               <input
+              placeholder="Enter Your Email"
                 type="email"
                 id="loginEmail"
                 name="loginEmail"
@@ -91,6 +93,7 @@ const RegistrationAndLoginForm = () => {
               <br />
               <label htmlFor="loginPassword">Password:</label>
               <input
+              placeholder='Enter Password'
                 type="password"
                 id="loginPassword"
                 name="loginPassword"
@@ -121,6 +124,7 @@ const RegistrationAndLoginForm = () => {
             <form onSubmit={handleRegistrationSubmit}>
               <label htmlFor="email">Email:</label>
               <input
+              placeholder='Enter Your Email'
                 type="email"
                 id="email"
                 name="email"
@@ -130,6 +134,7 @@ const RegistrationAndLoginForm = () => {
               <br />
               <label htmlFor="phone">Phone Number:</label>
               <input
+              placeholder='Enter Phone Number'
                 type="tel"
                 id="phone"
                 name="phone"
@@ -139,6 +144,7 @@ const RegistrationAndLoginForm = () => {
               <br />
               <label htmlFor="password">Password:</label>
               <input
+              placeholder='Enter Password'
                 type="password"
                 id="password"
                 name="password"
@@ -151,10 +157,12 @@ const RegistrationAndLoginForm = () => {
           </div>
         )}
       </div>
-
+      <div className='regbtn'>
       <button onClick={handleFormSwitch}>
         {isLogin ? 'Switch to Registration' : 'Switch to Login'}
       </button>
+      </div>
+    </div>
     </div>
   );
 };
