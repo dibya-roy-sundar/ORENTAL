@@ -16,7 +16,7 @@ module.exports.addOffice = async (req, res, next) => {
    office.owner = req.user.id;
    await office.save();
    res.status(200).json({
-      status: true,
+      success: true,
       office,
    })
 }
