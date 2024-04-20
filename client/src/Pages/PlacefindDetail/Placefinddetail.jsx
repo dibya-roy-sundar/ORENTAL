@@ -17,10 +17,10 @@ const Placefinddetail = () => {
     return (
         <div className="house-details">
             <div className="house-title">
-                <h1>WENGE HOUSE</h1>
+                <h1>{data.name}</h1>
                 <div className="row">
                     <div>
-                        <p>Location: San Francisco, California, United States</p>
+                        <p>{data.address}</p>
                     </div>
                 </div>
             </div>
@@ -40,20 +40,18 @@ const Placefinddetail = () => {
                 <div className="gallery-img5">
                     <img src={image5} alt="" />
                 </div>
-                {/* Add more gallery images */}
             </div>
-            {/* Add more details */}
             <div className="small-details">
-                <h2>PHONE NO: 85709xxxxx</h2>
-                <p>Email:mittal@gmail.com</p>
-                <h4>Rs.100/day || Rs.1000/month </h4>
+                <h2>{data.phnNo}</h2>
+                <p>{data.email}</p>
+                <h4>{data.price}/day</h4>
             </div>
             <hr className="line" />
-            <div className='review'>
+            {/* <div className='review'>
                 <h2>Reviews</h2>
                 <h2>this side yash mittal</h2>
                 <button>Add Review</button>
-            </div>
+            </div> */}
             <ul className="details-list">
                 <li><i className="fas fa-home"></i>Entire Home
                     <span>You will have the entire flat for you.</span>
