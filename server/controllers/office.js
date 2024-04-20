@@ -13,7 +13,7 @@ module.exports.addOffice = async (req, res, next) => {
       price,
    });
    office.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
-   office.owner = req.user.id;
+   // office.owner = req.user.id;
    await office.save();
    res.status(200).json({
       success: true,

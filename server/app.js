@@ -5,13 +5,14 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require('express');
 const app = express();
-const mongoose=require('mongoose');
-const userRoutes=require('./routes/user');
-const officeRoutes=require('./routes/office')
-const errorMiddleware=require('./middlewares/error');
+const mongoose = require('mongoose');
+const userRoutes = require('./routes/user');
+const officeRoutes = require('./routes/office');
+const bookingRoutes = require('./routes/booking');
+const errorMiddleware = require('./middlewares/error');
 const ErrorHand = require('./utils/errorhand');
-const cookieParser=require('cookie-parser');
-const cors=require('cors');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const dbUrl = process.env.ATLAS_URL;
 mongoose
@@ -35,7 +36,8 @@ app.use(cors({
 }))
 
 app.use('/', userRoutes);
-app.use('/office',officeRoutes);
+app.use('/office', officeRoutes);
+app.use('/office/book', bookingRoutes);
 
 app.use(errorMiddleware);
 

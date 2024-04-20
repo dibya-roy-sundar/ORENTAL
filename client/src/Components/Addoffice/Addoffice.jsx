@@ -50,36 +50,42 @@ const Addoffice = () => {
     };
 
     return (
+        <div className="formA">
+        <div className="formMain">
         <div className="addOffice-form">
             <h2>Registration Form</h2>
             <form onSubmit={handleSubmit}> {/* Add onSubmit event handler */}
                 <div className="form-group">
                     <label>Name:</label>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} />
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder='John Doe' />
                 </div>
                 <div className="form-group">
                     <label>Location:</label>
-                    <input type="text" name="location" value={formData.location} onChange={handleChange} />
+                    <input type="text" name="location" value={formData.location} onChange={handleChange} placeholder='Delhi, India' />
                 </div>
                 <div className="form-group">
                     <label>Phone No:</label>
-                    <input type="text" name="phone" value={formData.phone} onChange={handleChange} />
+                    <input type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder='99999 99999' />
                 </div>
                 <div className="form-group">
                     <label>Email:</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder='johndoe@gmail.com' />
                 </div>
                 <div className="form-group">
                     <label>Price:</label>
-                    <input type="text" name="price" value={formData.price} onChange={handleChange} />
+                    <input type="text" name="price" value={formData.price} onChange={handleChange} placeholder='Rs. 300' />
                 </div>
                 <div className="form-group">
                     <label>Upload Images:</label>
                     <input type="file" name="images" onChange={handleImageChange} multiple />
                 </div>
+                <div className="btndiv">
                 <button type="submit">Submit</button>
+                </div>
             </form>
             <ToastContainer /> {/* Render ToastContainer component */}
+        </div>
+        </div>
         </div>
     );
 };
