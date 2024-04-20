@@ -4,6 +4,7 @@ import Layout from './Pages/Layout/Layout.jsx'
 import Placefind from './Pages/Placefind/Placefind.jsx'
 import Placefinddetail from './Pages/PlacefindDetail/Placefinddetail.jsx'
 import Addoffice from './Components/Addoffice/Addoffice.jsx'
+import RegisterLogin from './Pages/Register-Login/RegisterLogin.jsx'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/findplace' element={<Placefind />} />
         <Route path='/findplacedetail' element={<Placefinddetail />} />
         <Route path='/officeadd' element={<Addoffice />} />
+        <Route path ='/RegisterLogin' element={<RegisterLogin/>} />
       </Routes>
     </Router>
   )
