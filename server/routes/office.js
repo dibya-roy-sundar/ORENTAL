@@ -9,8 +9,8 @@ const { addOffice, getOfficeData, editOffice } = require('../controllers/office'
 
 const router = express.Router({ mergeParams: true });
 
-router.route('/add').post(upload.array('image'), catchAsync(addOffice));
+router.route('/add').post(upload.array('files'), catchAsync(addOffice));
 router.route('/:id').get(catchAsync(getOfficeData));
-router.route('/edit/:id').put(upload.array('image'), catchAsync(editOffice));
+router.route('/edit/:id').put(upload.array('files'), catchAsync(editOffice));
 
 module.exports = router;

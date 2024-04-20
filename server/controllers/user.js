@@ -4,7 +4,7 @@ const ErrorHand = require('../utils/errorhand');
 const sendjwtToken = require('../utils/sendjwtToken');
 
 module.exports.register = async (req, res, next) => {
-    const { name, email, password, phnNo } = req.body;
+    const { userType, name, email, password, phnNo } = req.body;
  
 
     const foundUser = await User.findOne({ email: email });
@@ -19,6 +19,7 @@ module.exports.register = async (req, res, next) => {
     
     const hash = await bcrypt.hash(password, 12);
     const user = new User({
+        userType,
         name,
         email,
         password: hash,

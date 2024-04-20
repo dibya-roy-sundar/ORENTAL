@@ -1,0 +1,66 @@
+.slider {
+    overflow-x: hidden;
+    height: calc(100vh - 60px);
+    width: 100%;
+    position: relative;
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    img {
+        width: 100vw;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .container {
+        width: 300vw;
+        display: flex;
+        height: 100%;
+        transition: all 1s ease;
+
+        img {
+            width: 100vw;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .icons {
+        width: 100%;
+        position: absolute;
+        top: 45%;
+        display: flex;
+        justify-content: space-between;
+
+        .icon {
+            width: 40px;
+            height: 50px;
+            // border: 1px solid #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+
+    @media (max-width:1000px) {
+        height: 500px;
+    }
+
+    @media (max-width:800px) {
+        height: 300px;
+    }
+
+    @media (max-width:500px) {
+        height: 250px;
+    }
+}
