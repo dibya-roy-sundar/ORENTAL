@@ -1,13 +1,20 @@
 const cloudinary = require('../cloudinary/index')
 const Office = require('../models/office')
+const axios=require('axios');
 
 module.exports.addOffice = async (req, res, next) => {
-   const { name, location, latitude, longitude, phnNo, email, price } = req.body;
+   const { name, address, phnNo, email, price } = req.body;
+   console.log(process.env);
+   const response=await axios.get(`https://geocode.maps.co/search?q=${address}&api_key=${process.env.GOOGLE_MAP_API_KEY}`);
+   
+   const location={
+      type:'Point',
+      coordinates:[response.data[0].lat,response.data[0].lon],
+   }
    const office = new Office({
       name,
       location,
-      latitude,
-      longitude,
+      address,
       phnNo,
       email,
       price,
@@ -31,13 +38,17 @@ module.exports.getOfficeData = async (req, res, next) => {
 }
 
 module.exports.editOffice = async (req, res, next) => {
-   const { name, location, latitude, longitude, phnNo, email, price } = req.body;
+   const { name, address, phnNo, email, price } = req.body;
+   const response=await axios.get(`https://geocode.maps.co/search?q=${address}&api_key=${process.env.GOOGLE_MAP_API_KEY}`);
+   const location={
+      type:'Point',
+      coordinates:[response.data[0].lat,response.data[0].lon],
+   }
    const { id } = req.params;
    const office = await Office.findByIdAndUpdate(id,{
       name,
       location,
-      latitude,
-      longitude,
+      address,
       phnNo,
       email,
       price,

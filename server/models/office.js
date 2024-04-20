@@ -2,9 +2,18 @@ const mongoose = require('mongoose');
 
 const officeSchema = mongoose.Schema({
     name: String,
-    location: String,
-    latitude: String,
-    longitde: String,
+    location: {
+        type: {
+          type: String, // Don't do `{ location: { type: String } }`
+          enum: ['Point'], // 'location.type' must be 'Point'
+          required: true
+        },
+        coordinates: {
+          type: [Number],
+          required: true
+        }
+      },
+    address:String,
     phNO: String,
     email: String,
     price: String,
