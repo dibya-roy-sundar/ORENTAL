@@ -69,9 +69,14 @@ const Addoffice = () => {
                 },
                 withCredentials: true
             });
-            console.log(response.data.office);
-            toast.success('Office Listed successfully');
-            navigate(`/office/${response.data.office._id}`);
+            if (response?.data?.office) {
+                console.log(response.data.office);
+                toast.success('Office Listed successfully');
+                navigate(`/office/${response.data.office._id}`);
+            }
+            else if (response?.data?.error) {
+                toast.error(response.data.error);
+            }
 
         } catch (error) {
             console.error('Error uploading files:', error);

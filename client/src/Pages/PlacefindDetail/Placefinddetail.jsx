@@ -16,7 +16,6 @@ const Placefinddetail = () => {
 
     const handleDateSelect = (date) => {
         setSelectedDates(date);
-
     };
     const handleBookNow = () => {
         setIsChoosingDates(true);
@@ -28,40 +27,48 @@ const Placefinddetail = () => {
         console.log("Booking confirmed for dates:", selectedDates);
         setIsChoosingDates(false);
     };
+
     return (
-        <div className="house-details">
-            <div className="house-title">
-                <h1>{data.name}</h1>
-                <div className="row">
-                    <div>
-                        <p>{data.address}</p>
-                    </div>
-                </div>
-            </div>
-            <Slider />
-            <div className="small-details">
-                <button className='booking' onClick={handleBookNow}>
-                    Book Now
-                </button>
-                <h2>{data.phnNo}</h2>
-                <p>{data.email}</p>
-                <h4>{data.price}/day</h4>
-            </div>
-            {isChoosingDates && (
-                <div className="calendar-container">
-                    <Calendar
-                        onChange={handleDateSelect}
-                        value={selectedDates}
-                        selectRange={true}
-                        allowPartialRange={true}
-                    />
-                    <button className="confirm-booking" onClick={handleConfirmBooking}>
-                        Confirm Booking
-                    </button>
-                </div>
-            )}
-            <hr className="line" />
-            <div className='review'>
+            <>
+            {
+                loading
+                    ? <>LOADING</>
+                    : error
+                        ? 'error'
+                        :
+                        <div className="house-details">
+                            <div className="house-title">
+                                <h1>{data.office?.name}</h1>
+                                <div className="row">
+                                    <div>
+                                        <p>{data.office?.address}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <Slider images={data.office?.images}/>
+                            <div className="small-details">
+                                <button className='booking' onClick={handleBookNow}>
+                                    Book Now
+                                </button>
+                                <h2>{data.office?.phnNo}</h2>
+                                <p>{data.office?.email}</p>
+                                <h4>{data.office?.price}/day</h4>
+                            </div>
+                            {isChoosingDates && (
+                                <div className="calendar-container">
+                                    <Calendar
+                                        onChange={handleDateSelect}
+                                        value={selectedDates}
+                                        selectRange={true}
+                                        allowPartialRange={true}
+                                    />
+                                    <button className="confirm-booking" onClick={handleConfirmBooking}>
+                                        Confirm Booking
+                                    </button>
+                                </div>
+                            )}
+                            <hr className="line" />
+                            {/* <div className='review'>
                 <h2>Reviews</h2>
                 <div className='reviewcontainer'>
                     <div className='reviewtext'>

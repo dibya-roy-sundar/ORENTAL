@@ -3,14 +3,16 @@ import React from 'react';
 import './ListingCard.scss';
 import image5 from '../../assets/Placeimages/house-5.png';
 
-const ListingCard = () => {
+const ListingCard = ({officedata}) => {
+
     return (
         <div className="listing-card">
-            <img src={image5} alt="Listing" />
+            
+            <img src={officedata.images[0].url} alt="Listing" />
             <div className="details">
-                <h2>Beautiful Apartment in Downtown</h2>
-                <p>Entire apartment &bull; 2 guests &bull; 1 bedroom &bull; 1 bed &bull; 1 bath</p>
-                <p>$100/night</p>
+                <h2>{officedata.name}</h2>
+                <p>{officedata.address} &bull; 2 guests &bull; 1 bedroom &bull; 1 bed &bull; 1 bath</p>
+                <p>${officedata.price}/night</p>
             </div>
         </div>
     );
