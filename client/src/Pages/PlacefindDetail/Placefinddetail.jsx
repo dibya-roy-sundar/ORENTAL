@@ -12,7 +12,7 @@ const Placefinddetail = () => {
     const id = useParams().id;
 
     const { data, loading, error } = useGetFetch(`/office/${id}`);
-    console.log(data);
+    console.log(data.images);
 
     return (
         <div className="house-details">
@@ -24,7 +24,7 @@ const Placefinddetail = () => {
                     </div>
                 </div>
             </div>
-            <Slider />
+            <Slider images={data.images}/>
             <div className="gallery">
                 <div className="gallery-img1">
                     <img src={image1} alt="" />

@@ -1,8 +1,17 @@
 // SearchForm.js
-import React from 'react';
+import React, { useState } from 'react';
 import './Searchform.scss';
 
-const SearchForm = () => {
+const SearchForm = ({address,setAddress,searchDate,setSearchDate}) => {
+    const [add,setAdd]=useState('');
+    const [date,setDate]=useState('');
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        setAddress(add);
+        setSearchDate(date);
+    }
+
     const formatDate = (date) => {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -12,9 +21,9 @@ const SearchForm = () => {
     const today = formatDate(new Date());
     return (
         <>
-            <form className="search-form">
-                <input type="text" placeholder="Location" />
-                <input type="date" defaultValue={today} placeholder="Check-in" />
+            <form className="search-form" onSubmit={handleSubmit}>
+                <input type="text" placeholder="Location" value={add} onChange={e=>setAdd(e.target.value)}/>
+                <input type="date" defaultValue={today} placeholder="Check-in" value={date} onChange={e=>setDate}/>
                 <button type="submit">Search</button>
             </form>
             {/*<div className='searchbuttons'>
