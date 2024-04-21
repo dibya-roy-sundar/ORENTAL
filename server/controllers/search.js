@@ -3,25 +3,36 @@ const Office = require("../models/office");
 
 module.exports.getSearchData = async (req, res, next) => {
   const { address, date } = req.query;
-  const response = await axios.get(
-    `https://geocode.maps.co/search?q=${address}&api_key=${process.env.GOOGLE_MAP_API_KEY}`
-  );
-  const lat = response.data[0].lat;
-  const lon = response.data[0].lon;
-  
+  if(!address || address.length===0){
+    const offices=await Office.find({});
+      
+    res.status(200).json({
+      success: true,
+      offices,
+    });
 
-  // based on earth properties ,more accurate
-  const offices = await Office.find({
-    location:{$geoWithin:{$centerSphere:[[lat,lon],10/3963.2]}},
-    bookedDays: { $ne: date }
-  });
+  }else{
 
- 
-
-  res.status(200).json({
-    success: true,
-    offices,
-  });
+    const response = await axios.get(
+      `https://geocode.maps.co/search?q=${address}&api_key=${process.env.GOOGLE_MAP_API_KEY}`
+    );
+    const lat = response.data[0].lat;
+    const lon = response.data[0].lon;
+    
+    
+    // based on earth properties ,more accurate
+    const offices = await Office.find({
+      location:{$geoWithin:{$centerSphere:[[lat,lon],10/3963.2]}},
+      bookedDays: { $ne: date }
+    });
+    
+    
+    
+    res.status(200).json({
+      success: true,
+      offices,
+    });
+  }
 
   // based on simple distance
   // await Office.find({location:{$near:{$maxDistance:10000,$geometry:{type:'Point',coordinates:[-79.3,43.6]}}}});

@@ -23,8 +23,8 @@ const Slider = ({ images }) => {
                 }}
                 pagination={{ clickable: true }}
                 effect={'fade'}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
+                // onSwiper={(swiper) => console.log(swiper)}
+                // onSlideChange={() => console.log('slide change')}
                 style={{
                     "--swiper-pagination-color": "#ff3e6c",
                 }}
