@@ -5,9 +5,12 @@ import Slider from '../../Components/Slider/Slider.jsx';
 import Calendar from 'react-calendar';
 import './Placefinddetail.scss';
 import 'react-calendar/dist/Calendar.css';
+
 const Placefinddetail = () => {
     const id = useParams().id;
     const { data, loading, error } = useGetFetch(`/office/${id}`);
+    console.log(data.images);
+
     const [selectedDates, setSelectedDates] = useState([]);
     const [isChoosingDates, setIsChoosingDates] = useState(false);
 
@@ -58,11 +61,15 @@ const Placefinddetail = () => {
                 </div>
             )}
             <hr className="line" />
-            {/* <div className='review'>
+            <div className='review'>
                 <h2>Reviews</h2>
-                <h2>this side yash mittal</h2>
-                <button>Add Review</button>
-            </div> */}
+                <div className='reviewcontainer'>
+                    <div className='reviewtext'>
+                        <input type="text" placeholder="Write a review" />
+                    </div>
+                    <button>Add Review</button>
+                </div>
+            </div>
             <ul className="details-list">
                 <li>
                     <i className="fas fa-home"></i>Entire Home

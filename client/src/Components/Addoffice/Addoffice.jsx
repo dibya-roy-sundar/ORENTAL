@@ -14,7 +14,7 @@ const Addoffice = () => {
     const [formData, setFormData] = useState({
         name: '',
         address: '',
-        phone: '',
+        phnNo: '',
         email: '',
         price: '',
     });
@@ -42,11 +42,11 @@ const Addoffice = () => {
             return;
         }
         const phoneRegex = /^[0-9]{10}$/;
-        if (!phoneRegex.test(formData.phone)) {
+        if (!phoneRegex.test(formData.phnNo)) {
             toast.error('Please enter a valid 10-digit phone number');
             return;
         }
-        if (!formData.name || !formData.address || !formData.phone || !formData.email || !formData.price || files.length === 0) {
+        if (!formData.name || !formData.address || !formData.phnNo || !formData.email || !formData.price || files.length === 0) {
             toast.error('Please fill in all fields and upload at least one image');
             return;
         }
@@ -55,7 +55,7 @@ const Addoffice = () => {
 
         formDataToSend.append('name', formData.name);
         formDataToSend.append('address', formData.address);
-        formDataToSend.append('phnNo', formData.phone);
+        formDataToSend.append('phnNo', formData.phnNo);
         formDataToSend.append('email', formData.email);
         formDataToSend.append('price', formData.price);
         for (let i = 0; i < files.length; i++) {
@@ -95,7 +95,7 @@ const Addoffice = () => {
                         </div>
                         <div className="form-group">
                             <label>Phone No:</label>
-                            <input type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder='99999 99999' />
+                            <input type="text" name="phnNo" value={formData.phnNo} onChange={handleChange} placeholder='99999 99999' />
                         </div>
                         <div className="form-group">
                             <label>Email:</label>
