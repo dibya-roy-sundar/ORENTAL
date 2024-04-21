@@ -37,9 +37,6 @@ const Placefinddetail = () => {
             </div>
             <Slider />
             <div className="small-details">
-                <h2>PHONE NO: 85709xxxxx</h2>
-                <p>Email: mittal@gmail.com</p>
-                <h4>Rs.100/day</h4>
                 <button className='booking' onClick={handleBookNow}>
                     Book Now
                 </button>
