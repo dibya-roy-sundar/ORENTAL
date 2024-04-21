@@ -15,7 +15,7 @@ const officeSchema = mongoose.Schema({
         }
       },
     address:String,
-    phNO: String,
+    phnNO: String,
     email: String,
     price: String,
     images: [{
