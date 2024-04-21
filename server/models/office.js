@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const review = require('./review');
 
 const officeSchema = mongoose.Schema({
     name: String,
@@ -32,6 +33,13 @@ const officeSchema = mongoose.Schema({
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Booking'
+        }
+    ],
+    reviews:[
+        {
+            
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Review'
         }
     ]
 })

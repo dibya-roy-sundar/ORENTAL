@@ -60,7 +60,7 @@ module.exports.editOffice = async (req, res, next) => {
       for (let filename of req.body.deleteImages) {
          await cloudinary.uploader.destroy(filename);
       }
-      await campground.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages } } } })
+      await office.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages } } } })
    }
 
    res.status(200).json({

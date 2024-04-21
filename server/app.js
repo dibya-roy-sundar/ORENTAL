@@ -37,9 +37,10 @@ app.use(cors({
 }))
 
 app.use('/', userRoutes);
-app.use('/office', officeRoutes);
 app.use('/office/book', bookingRoutes);
+app.use('/office', officeRoutes);
 app.use('/search',searchRoutes);
+app.use('/office/:id/review');
 
 app.use(errorMiddleware);
 

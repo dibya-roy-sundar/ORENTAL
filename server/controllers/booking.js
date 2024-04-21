@@ -19,8 +19,9 @@ module.exports.bookOffice = async (req, res, next) => {
 
     await booking.save();
 
-    req.user.bookedEvents.push(booking);
+    req.user?.bookedEvents.push(booking);
     office.previousBooking.push(booking);
+    office.bookedDays=date;
 
     
     
