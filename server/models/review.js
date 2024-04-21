@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 
 const reviewSchema=mongoose.Schema({
-    body:{
+    content:{
         type:String,
         required:true,
     },
-    owner:{
+    author:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     }
