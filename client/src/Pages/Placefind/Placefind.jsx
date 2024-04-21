@@ -8,7 +8,7 @@ import useGetFetch from '../../hooks/useGetFetch';
 const Placefind = () => {
     const [address, setAddress] = useState('');
     const [searchDate, setSearchDate] = useState('');
-    const { data, loading, error } = useGetFetch(`/search/?address=${'jhansi'}&date=${searchDate}`);
+    const { data, loading, error } = useGetFetch(`/search/?address=${address}&date=${searchDate}`);
     console.log(data);
     return (
         <div>
