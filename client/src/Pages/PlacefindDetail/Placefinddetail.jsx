@@ -29,7 +29,7 @@ const Placefinddetail = () => {
     };
 
     return (
-            <>
+        <>
             {
                 loading
                     ? <>LOADING</>
@@ -45,7 +45,7 @@ const Placefinddetail = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Slider images={data.office?.images}/>
+                            <Slider images={data.office?.images} />
                             <div className="small-details">
                                 <button className='booking' onClick={handleBookNow}>
                                     Book Now
@@ -68,27 +68,29 @@ const Placefinddetail = () => {
                                 </div>
                             )}
                             <hr className="line" />
-                            {/* <div className='review'>
-                <h2>Reviews</h2>
-                <div className='reviewcontainer'>
-                    <div className='reviewtext'>
-                        <input type="text" placeholder="Write a review" />
-                    </div>
-                    <button>Add Review</button>
-                </div>
-            </div>
-            <ul className="details-list">
-                <li>
-                    <i className="fas fa-home"></i>Entire Home
-                    <span>You will have the entire flat for you.</span>
-                </li>
-            </ul>
-            <hr className="line" />
-            <p className="home-desc">
-                Guests will be allocated on the ground floor according to availability. You get a comfortable two-bedroom apartment that has a true city feeling. The price quoted is for two guests; at the guest slot, please mark the number of guests to get the exact price for groups.
-            </p>
-            <hr className="line" />
-        </div>
+                            <div className='review'>
+                                <h2>Reviews</h2>
+                                <div className='reviewcontainer'>
+                                    <div className='reviewtext'>
+                                        <input type="text" placeholder="Write a review" />
+                                    </div>
+                                    <button>Add Review</button>
+                                </div>
+                            </div>
+                            <ul className="details-list">
+                                <li>
+                                    <i className="fas fa-home"></i>Entire Home
+                                    <span>You will have the entire flat for you.</span>
+                                </li>
+                            </ul>
+                            <hr className="line" />
+                            <p className="home-desc">
+                                Guests will be allocated on the ground floor according to availability. You get a comfortable two-bedroom apartment that has a true city feeling. The price quoted is for two guests; at the guest slot, please mark the number of guests to get the exact price for groups.
+                            </p>
+                            <hr className="line" />
+                        </div>
+            }
+        </>
     );
 };
 export default Placefinddetail;
