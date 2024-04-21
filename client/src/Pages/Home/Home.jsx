@@ -21,6 +21,7 @@ const Home = () => {
                     </div>
                     <div className="right">
                         <Link to='/registerlogin'><button className='navItemRight'>Login/SignUp</button></Link>
+                        <Link to='/officeadd'><button className='navItemRight'>Add Office</button></Link>
 
                     </div>
                 </div>
