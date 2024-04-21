@@ -28,10 +28,10 @@ const Placefinddetail = () => {
     return (
         <div className="house-details">
             <div className="house-title">
-                <h1>WENGE HOUSE</h1>
+                <h1>{data.name}</h1>
                 <div className="row">
                     <div>
-                        <p>Location: San Francisco, California, United States</p>
+                        <p>{data.address}</p>
                     </div>
                 </div>
             </div>
@@ -43,6 +43,9 @@ const Placefinddetail = () => {
                 <button className='booking' onClick={handleBookNow}>
                     Book Now
                 </button>
+                <h2>{data.phnNo}</h2>
+                <p>{data.email}</p>
+                <h4>{data.price}/day</h4>
             </div>
             {isChoosingDates && (
                 <div className="calendar-container">
@@ -58,11 +61,11 @@ const Placefinddetail = () => {
                 </div>
             )}
             <hr className="line" />
-            <div className='review'>
+            {/* <div className='review'>
                 <h2>Reviews</h2>
                 <h2>this side yash mittal</h2>
                 <button>Add Review</button>
-            </div>
+            </div> */}
             <ul className="details-list">
                 <li>
                     <i className="fas fa-home"></i>Entire Home

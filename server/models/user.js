@@ -31,7 +31,7 @@ const userSchema = mongoose.Schema({
     bookedEvents: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Office'
+            ref: 'Booking'
         }
     ]
 });
