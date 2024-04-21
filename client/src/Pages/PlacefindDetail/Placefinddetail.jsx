@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import useGetFetch from '../../hooks/useGetFetch';
-import Slider from '../../Components/Slider/Slider.jsx';
 import Calendar from 'react-calendar';
-import './Placefinddetail.scss';
 import 'react-calendar/dist/Calendar.css';
-
+import { useParams } from 'react-router-dom';
+import Slider from '../../Components/Slider/Slider.jsx';
+import useGetFetch from '../../hooks/useGetFetch';
+import usePostFetch from '../../hooks/usePostFetch.js';
+import './Placefinddetail.scss';
 const Placefinddetail = () => {
     const id = useParams().id;
-    const { data, loading, error } = useGetFetch(`/office/${id}`);
-    console.log(data.images);
-
+    const { data, loading, error } = useGetFetch(/office/${id});
     const [selectedDates, setSelectedDates] = useState([]);
     const [isChoosingDates, setIsChoosingDates] = useState(false);
 
@@ -20,12 +18,20 @@ const Placefinddetail = () => {
     const handleBookNow = () => {
         setIsChoosingDates(true);
     };
-    const handleConfirmBooking = () => {
+    const handleConfirmBooking = async (e) => {
         // Logic to confirm booking using selectedDates
         // You can send a request to your backend here
         // For now, let's just log the selected dates
-        console.log("Booking confirmed for dates:", selectedDates);
-        setIsChoosingDates(false);
+        // setIsChoosingDates(false);
+        const resp = await usePostFetch(/office/book/${id}, {
+            date: selectedDates
+        });
+        if (resp.data?.booking) {
+            alert('Booking successful');
+        }
+        else if (resp.data.error) {
+            alert(resp.data.error);
+        }
     };
 
     return (
@@ -68,15 +74,11 @@ const Placefinddetail = () => {
                                 </div>
                             )}
                             <hr className="line" />
-                            <div className='review'>
-                                <h2>Reviews</h2>
-                                <div className='reviewcontainer'>
-                                    <div className='reviewtext'>
-                                        <input type="text" placeholder="Write a review" />
-                                    </div>
-                                    <button>Add Review</button>
-                                </div>
-                            </div>
+                            {/* <div className='review'>
+                <h2>Reviews</h2>
+                <h2>this side yash mittal</h2>
+                <button>Add Review</button>
+            </div> */}
                             <ul className="details-list">
                                 <li>
                                     <i className="fas fa-home"></i>Entire Home
