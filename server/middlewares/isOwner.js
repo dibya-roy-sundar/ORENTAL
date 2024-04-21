@@ -1,4 +1,4 @@
-const Review = require('../model/review');
+const Review = require('../models/review');
 const jwt = require('jsonwebtoken');
 
 module.exports.isOwner = async (req, res, next) => {

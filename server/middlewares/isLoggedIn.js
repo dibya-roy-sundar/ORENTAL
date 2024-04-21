@@ -1,6 +1,6 @@
 const ErrorHand = require("../utils/errorhand");
 const jwt = require('jsonwebtoken');
-const User = require('../model/user');
+const User = require('../models/user');
 
 module.exports.isLoggedIn = async (req, res, next) => {
     const {token} = req.cookies;
