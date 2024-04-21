@@ -13,7 +13,7 @@ const bookingSchema = mongoose.Schema({
     },
     bookingDate: [
         {
-            type: Date,
+            type: String,
         }
     ]
 });
