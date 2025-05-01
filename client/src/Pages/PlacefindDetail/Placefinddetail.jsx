@@ -5,14 +5,17 @@ import Slider from '../../Components/Slider/Slider.jsx';
 import Calendar from 'react-calendar';
 import './Placefinddetail.scss';
 import 'react-calendar/dist/Calendar.css';
+import usePostFetch from '../../hooks/usePostFetch';
+import { toast } from 'react-toastify';
 
 const Placefinddetail = () => {
+    const isLoggedIn = localStorage.getItem('token') !== null;
     const id = useParams().id;
     const { data, loading, error } = useGetFetch(`/office/${id}`);
-    console.log(data.images);
 
     const [selectedDates, setSelectedDates] = useState([]);
     const [isChoosingDates, setIsChoosingDates] = useState(false);
+
 
     const handleDateSelect = (date) => {
         setSelectedDates(date);
@@ -20,12 +23,39 @@ const Placefinddetail = () => {
     const handleBookNow = () => {
         setIsChoosingDates(true);
     };
-    const handleConfirmBooking = () => {
+    const handleConfirmBooking =async () => {
         // Logic to confirm booking using selectedDates
         // You can send a request to your backend here
         // For now, let's just log the selected dates
         console.log("Booking confirmed for dates:", selectedDates);
+
+        if (!selectedDates || selectedDates.length !== 2) {
+            console.error("Invalid date range selected.");
+            return;
+        }
+    
+        const [startDate, endDate] = selectedDates.map(date => new Date(date));
+        const datesInRange = [];
+    
+        for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+            // Clone the date to avoid mutation issues
+            datesInRange.push(new Date(d));
+        }
+    
+        console.log("Booking confirmed for dates:", datesInRange);
+        const data = await usePostFetch(`/office/book/${id}`, { date: datesInRange });
+        console.log(data);
+        if(data.success){
+            toast.success(`Booking successfull`);
+        }
+        
+    
+        // Here you can send datesInRange to your backend instead of selectedDates
+        // Example:
+        // axios.post("/api/book", { dates: datesInRange })
+    
         setIsChoosingDates(false);
+        window.location.reload();
     };
 
     return (
@@ -47,12 +77,13 @@ const Placefinddetail = () => {
                             </div>
                             <Slider images={data.office?.images} />
                             <div className="small-details">
-                                <button className='booking' onClick={handleBookNow}>
+                                {isLoggedIn && <button className='booking' onClick={handleBookNow}>
                                     Book Now
-                                </button>
+                                </button>}
+                                
                                 <h2>{data.office?.phnNo}</h2>
                                 <p>{data.office?.email}</p>
-                                <h4>{data.office?.price}/day</h4>
+                                <h4>Rs {data.office?.price}/day</h4>
                             </div>
                             {isChoosingDates && (
                                 <div className="calendar-container">
@@ -61,6 +92,12 @@ const Placefinddetail = () => {
                                         value={selectedDates}
                                         selectRange={true}
                                         allowPartialRange={true}
+                                        minDate={new Date()}
+                                        tileDisabled={({ date, view }) => {
+                                            if (view !== 'month') return false; // only disable in month view
+                                            const formattedDate = date.toISOString().split('T')[0]; // e.g., "2024-04-29"
+                                            return data.office.bookedDays.includes(date);
+                                          }}
                                     />
                                     <button className="confirm-booking" onClick={handleConfirmBooking}>
                                         Confirm Booking
@@ -68,7 +105,7 @@ const Placefinddetail = () => {
                                 </div>
                             )}
                             <hr className="line" />
-                            <div className='review'>
+                            {isLoggedIn && <div className='review'>
                                 <h2>Reviews</h2>
                                 <div className='reviewcontainer'>
                                     <div className='reviewtext'>
@@ -76,7 +113,7 @@ const Placefinddetail = () => {
                                     </div>
                                     <button>Add Review</button>
                                 </div>
-                            </div>
+                            </div>}
                             <ul className="details-list">
                                 <li>
                                     <i className="fas fa-home"></i>Entire Home

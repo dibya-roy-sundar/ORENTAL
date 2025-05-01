@@ -3,7 +3,7 @@ import './RegisterLogin.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import usePostFetch from '../../hooks/usePostFetch';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 
 const RegistrationAndLoginForm = () => {
   const navigate = useNavigate();
@@ -44,6 +44,8 @@ const RegistrationAndLoginForm = () => {
     })
     console.log(data);
     if (data.data && data.data.user) {
+      localStorage.setItem('token', data.data.token);
+      localStorage.setItem('user', JSON.stringify(data.data.user));
       toast.success(`Hello ${data.data.user.name}`);
       navigate('/');
     }
@@ -80,7 +82,9 @@ const RegistrationAndLoginForm = () => {
       phnNo: phone,
     })
     console.log(data);
-    if (data.data && data.data.user) {
+    if (data.data && data.data.user) {      
+      localStorage.setItem('token', data.data.token);
+      localStorage.setItem('user', JSON.stringify(data.data.user));
       toast.success(`Hello ${data.data.user.name}`);
       navigate('/');
     }

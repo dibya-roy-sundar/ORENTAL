@@ -6,7 +6,8 @@ module.exports.bookOffice = async (req, res, next) => {
     const { id } = req.params;
     const office = await Office.findById(id);
     const {  date } = req.body;
-    // bookedBy=req.user;
+    const bookedBy=req.user;
+    
     const booking = new Booking({
         place: office,
         bookedBy,
@@ -22,19 +23,15 @@ module.exports.bookOffice = async (req, res, next) => {
     req.user?.bookedEvents.push(booking);
     office.previousBooking.push(booking);
     date.forEach(d => {
-        
         office.bookedDays.push(d);
     });
+    await req.user.save();
     await office.save();
-    
-    
-    
- 
-    
 
     res.status(200).json({
         success: true,
-        booking,
+        // booking,
+        // office
     });
 }
 

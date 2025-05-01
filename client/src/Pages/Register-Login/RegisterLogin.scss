@@ -36,6 +36,9 @@
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
+                .active{
+                    background-color: #f45618;
+                }
 
 
                 label {

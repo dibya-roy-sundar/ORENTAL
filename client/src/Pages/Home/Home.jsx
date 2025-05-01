@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.scss';
 import main_girl from './main_girl.png';
 import person1 from './person1.png';
@@ -9,9 +9,32 @@ import priceLogo from './priceLogo.png';
 import reservedLogo from './reservedLogo.png';
 import { Link } from 'react-router-dom';
 import SearchForm from '../../Components/SearchForm/Searchform';
+import useGetFetch from '../../hooks/useGetFetch';
 
 
 const Home = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token') !== null);
+    const userString = localStorage.getItem('user');
+    const user = userString ? JSON.parse(userString) : null;
+    
+    const handleLogout = async () => {
+        console.log('Logout clicked');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        try {
+            const response = await fetch('/logout', {
+              method: 'GET',
+              credentials: 'include' // if your API needs cookies
+            });
+            const data = await response.json();
+            console.log(data);
+          } catch (error) {
+            console.error('Logout failed', error);
+          }
+        setIsLoggedIn(false);
+        window.location.reload();
+    }
+
     return (
         <div className='mainOuter'>
             <div className="header">
@@ -20,10 +43,9 @@ const Home = () => {
                         <SearchForm />
                     </div>
                     <div className="right">
-                        <Link to='/registerlogin'><button className='navItemRight'>Login/SignUp</button></Link>
-                        <Link to='/officeadd'><button className='navItemRight'>Add Office</button></Link>
-
-                    </div>
+                        {!isLoggedIn && <Link to='/registerlogin'><button className='navItemRight'>Login/SignUp</button></Link>}
+                        {isLoggedIn && <button className='navItemRight' onClick={handleLogout}> Log Out</button>} 
+                        {isLoggedIn &&  user?.userType==='lister' &&   <Link to='/officeadd'><button className='navItemRight'>Add Office</button></Link>     }               </div>
                 </div>
             </div>
             <div className="hero">
