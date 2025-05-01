@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import useGetFetch from '../../hooks/useGetFetch';
-import Slider from '../../Components/Slider/Slider.jsx';
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import { useParams } from 'react-router-dom';
+import Slider from '../../Components/Slider/Slider.jsx';
+import useGetFetch from '../../hooks/useGetFetch';
+import usePostFetch from '../../hooks/usePostFetch.js';
 import './Placefinddetail.scss';
 import 'react-calendar/dist/Calendar.css';
 import usePostFetch from '../../hooks/usePostFetch';
